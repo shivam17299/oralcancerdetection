@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Add Image</title>
+
+    <!-- Main Styles -->
+    <link href="../../static/adminResource/css/style.min.css" rel="stylesheet">
+    <link href="../../static/adminResource/css/custom.css" rel="stylesheet">
+
+    <!-- Material Design Icon -->
+    <link href="../../static/adminResource/css/materialdesignicons.css" rel="stylesheet">
+
+    <!-- mCustomScrollbar -->
+    <link href="../../static/adminResource/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- Waves Effect -->
+    <link href="../../static/adminResource/css/waves.min.css" rel="stylesheet">
+
+    <!-- Sweet Alert -->
+    <link href="../../static/adminResource/css/sweetalert.css" rel="stylesheet">
+
+    <!-- Color Picker -->
+    <link href="../../static/adminResource/css/color-switcher.min.css" rel="stylesheet">
+
+    <link href="../../static/adminResource/css/demo.css" rel="stylesheet">
+    <link href="../../static/adminResource/css/dropify.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+{% include 'user/menu.html' %}
+
+
+<!-- /.main-menu -->
+
+
+{% include 'user/header.html' %}
+
+
+<!-- /.fixed-navbar -->
+
+<div id="wrapper">
+    <div class="main-content">
+        <div class="row small-spacing">
+            <div class="col-12">
+                <div class="box-content">
+                    <form ENCTYPE="multipart/form-data" action="/admin/insertDataset" data-toggle="validator"
+                          method="post">
+                        <div class="form-group">
+                            <h4>Upload Image</h4>
+                        </div>
+                        <input class="dropify" id="input-file-now" name="image" type="file"/> <br/><br/>
+                        <div class="form-group">
+                            <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-12 -->
+        </div>
+        <!-- /.row small-spacing -->
+
+        {% include 'user/footer.html' %}
+
+    </div>
+    <!-- /.main-content -->
+</div><!--/#wrapper -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="../../adminResource/js/html5shiv.min.js"></script>
+<script src="../../adminResource/js/respond.min.js"></script>
+<![endif]-->
+<!--
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../static/adminResource/js/jquery.min.js"></script>
+<script src="../../static/adminResource/js/modernizr.min.js"></script>
+<script src="../../static/adminResource/js/bootstrap.min.js"></script>
+<script src="../../static/adminResource/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../../static/adminResource/js/nprogress.js"></script>
+<script src="../../static/adminResource/js/sweetalert.min.js"></script>
+<script src="../../static/adminResource/js/waves.min.js"></script>
+<!-- Full Screen Plugin -->
+<script src="../../static/adminResource/js/jquery.fullscreen-min.js"></script>
+
+<!-- Validator -->
+<script src="../../static/adminResource/js/validator.min.js"></script>
+
+<script src="../../static/adminResource/js/main.min.js"></script>
+<script src="../../static/adminResource/js/mycommon.js"></script>
+<script src="../../static/adminResource/js/color-switcher.min.js"></script>
+<script src="../../static/adminResource/fileUpload.demo.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="../../static/adminResource/js/dropify.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Basic
+        $('.dropify').dropify();
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function (event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function (event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function (event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function (e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });
+</script>
+
+</body>
+</html>

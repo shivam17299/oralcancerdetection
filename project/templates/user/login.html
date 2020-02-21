@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Home</title>
+    <link href="../../static/adminResource/css/style.min.css" rel="stylesheet">
+    <link href="../../static/adminResource/css/custom.css" rel="stylesheet">
+
+    <!-- Waves Effect -->
+    <link href="../../static/adminResource/css/waves.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="single-wrapper">
+    <form action="/user/validateLogin" class="frm-single" method="post">
+        <div class="inside">
+            <div class="title"><strong>OCD</strong></div>
+            <!-- /.title -->
+            <div class="frm-title">Login</div>
+            <!-- /.frm-title -->
+            <div class="frm-input"><input class="frm-inp" name="loginUsername" placeholder="Username" type="email"
+                    pattern="^[^@]+@[^@]+\.[^@]+$" required><i
+                    class="fa fa-user frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="frm-input"><input class="frm-inp" name="loginPassword" placeholder="Password" type="password"><i
+                    class="fa fa-lock frm-ico"></i></div>
+            <!-- /.frm-input -->
+<!--            <div class="clearfix margin-bottom-20">-->
+<!--                <div class="float-left">-->
+<!--                    <div class="checkbox primary"><input id="rememberme" type="checkbox"><label for="rememberme">Remember-->
+<!--                        me</label></div>-->
+<!--                    &lt;!&ndash; /.checkbox &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /.float-left &ndash;&gt;-->
+<!--                <div class="float-right"><a class="a-link" href="page-recoverpw.html"><i class="fa fa-unlock-alt"></i>Forgot-->
+<!--                    password?</a></div>-->
+<!--                &lt;!&ndash; /.float-right &ndash;&gt;-->
+<!--            </div>-->
+            <!-- /.clearfix -->
+            <button class="frm-submit" type="submit">Login<i class="fa fa-arrow-circle-right"></i></button>
+            <span style="color: red">
+			{%if error%}
+			{{error}}
+			{%endif%}
+			</span>
+
+            <br/>
+            <a href="/admin/registration">If not register, Sign up >>></a>
+
+            {#
+            <div class="row small-spacing">#}
+                {#
+                <div class="col-md-12">#}
+                    {#
+                    <div class="txt-login-with txt-center">or login with</div>
+                    #}
+                    {#                    <!-- /.txt-login-with -->#}
+                    {#
+                </div>
+                #}
+                {#                <!-- /.col-md-12 -->#}
+                {#
+                <div class="col-md-6">
+                    <button class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-facebook text-white waves-effect waves-light"
+                            type="button">
+                        <i class="ico fa fa-facebook"></i><span>Facebook</span></button>
+                </div>
+                #}
+                {#                <!-- /.col-md-6 -->#}
+                {#
+                <div class="col-md-6">
+                    <button class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-google-plus text-white waves-effect waves-light"
+                            type="button">
+                        <i class="ico fa fa-google-plus"></i>Google+
+                    </button>
+                </div>
+                #}
+                {#                <!-- /.col-md-6 -->#}
+                {#
+            </div>
+            #}
+            <!-- /.row -->
+            {# <a class="a-link" href="page-register.html"><i class="fa fa-key"></i>New to NinjaAdmin? Register.</a>#}
+            {#
+            <div class="frm-footer">NinjaAdmin © 2016.</div>
+            #}
+            {#            <!-- /.footer -->#}
+        </div>
+        <!-- .inside -->
+    </form>
+    <!-- /.frm-single -->
+</div><!--/#single-wrapper -->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="adminResource/js/html5shiv.min.js"></script>
+<script src="adminResource/js/respond.min.js"></script>
+<![endif]-->
+<!--
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../static/adminResource/js/jquery.min.js"></script>
+<script src="../../static/adminResource/js/modernizr.min.js"></script>
+<script src="../../static/adminResource/js/bootstrap.min.js"></script>
+<script src="../../static/adminResource/js/nprogress.js"></script>
+<script src="../../static/adminResource/js/waves.min.js"></script>
+
+<script src="../../static/adminResource/js/main.min.js"></script>
+<script src="../../static/adminResource/js/mycommon.js"></script>
+<!--<script>-->
+<!--        function ValidateEmail(inputText)-->
+<!--        {-->
+<!--            var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;-->
+<!--            if(inputText.value.match(mailformat))-->
+<!--            {-->
+<!--                document.form1.text1.focus();-->
+<!--                return true;-->
+<!--            }-->
+<!--            else-->
+<!--            {-->
+<!--                alert("You have entered an invalid email address!");-->
+<!--                document.form1.text1.focus();-->
+<!--                return false;-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+</body>
+</html>

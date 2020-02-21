@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Home</title>
+    <link href="../../static/adminResource/css/style.min.css" rel="stylesheet">
+    <link href="../../static/adminResource/css/custom.css" rel="stylesheet">
+
+    <!-- Waves Effect -->
+    <link href="../../static/adminResource/css/waves.min.css" rel="stylesheet">
+
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function Checkterms() {
+            if (document.getElementById("accept").checked == true) {
+                document.getElementById("btnSubmit").style.background = "#304ffe";
+                document.getElementById("btnSubmit").disabled = false;
+            } else {
+                document.getElementById("btnSubmit").style.background = "Grey";
+                document.getElementById("btnSubmit").disabled = true;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div id="single-wrapper">
+    <form action="/user/insertRegister" class="frm-single" method="post">
+        <div class="inside">
+            <div class="title"><strong>OCD</strong></div>
+            <!-- /.title -->
+            <div class="frm-title">Register</div>
+            <!-- /.frm-title -->
+            <div class="frm-input"><input class="frm-inp" name="registerName" placeholder="Name" required type="text"><i
+                    class="fa fa-user frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="form-group">
+                Gender: &nbsp;
+                <input id="gender1" name="registerGender" required type="radio" value="Male">
+                <label for="gender1">Male &nbsp;</label>
+                <input id="gender2" name="registerGender" required type="radio" value="Female">
+                <label for="gender2">Female &nbsp;</label>
+                <input id="gender3" name="registerGender" required type="radio" value="Other">
+                <label for="gender3">Other &nbsp;</label>
+            </div>
+            <div class="frm-input"><input class="frm-inp" name="loginUsername" placeholder="Email"
+                                          pattern="^[^@]+@[^@]+\.[^@]+$" required
+                                          type="email"><i
+                    class="fa fa-envelope frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <!--			<div class="frm-input"><input type="password" placeholder="Password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>-->
+            <!--			&lt;!&ndash; /.frm-input &ndash;&gt;-->
+
+            <div class="frm-input"><input class="frm-inp" max="12" min="10" pattern=".{5,10}" name="registerNumber"
+                                          placeholder="Contact" required type="number" oninvalid="this.setCustomValidity('Please enter valid 10 to 12 digit phone number')"><i
+                    class="fa fa-user frm-ico"></i></div>
+
+            <div class="clearfix margin-bottom-20">
+                <div class="checkbox primary"><input id="accept" onclick="Checkterms()" type="checkbox"><label
+                        for="accept">I accept Terms and
+                    Conditions</label></div>
+                <!-- /.checkbox -->
+            </div>
+            <!-- /.clearfix -->
+            <button class="frm-submit" disabled id="btnSubmit" style="background: Grey;" type="submit">Register<i
+                    class="fa fa-arrow-circle-right"></i></button>
+            <!-- /.row -->
+            <a class="a-link" href="/"><i class="fa fa-sign-in"></i>Already have account? Login.</a>
+            <div class="frm-footer">OCD © 2020.</div>
+            <!-- /.footer -->
+        </div>
+        <!-- .inside -->
+    </form>
+    <!-- /.frm-single -->
+</div><!--/#single-wrapper -->
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="adminResource/js/html5shiv.min.js"></script>
+<script src="adminResource/js/respond.min.js"></script>
+<![endif]-->
+<!--
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../static/adminResource/js/jquery.min.js"></script>
+<script src="../../static/adminResource/js/modernizr.min.js"></script>
+<script src="../../static/adminResource/js/bootstrap.min.js"></script>
+<script src="../../static/adminResource/js/nprogress.js"></script>
+<script src="../../static/adminResource/js/waves.min.js"></script>
+
+<script src="../../static/adminResource/js/main.min.js"></script>
+<script src="../../static/adminResource/js/mycommon.js"></script>
+</body>
+</html>

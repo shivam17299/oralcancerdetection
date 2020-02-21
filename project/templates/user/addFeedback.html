@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <title>Add Feedback</title>
+
+    <!-- Main Styles -->
+    <link href="../../static/adminResource/css/style.min.css" rel="stylesheet">
+    <link href="../../static/adminResource/css/custom.css" rel="stylesheet">
+
+    <!-- Material Design Icon -->
+    <link href="../../static/adminResource/css/materialdesignicons.css" rel="stylesheet">
+
+    <!-- mCustomScrollbar -->
+    <link href="../../static/adminResource/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- Waves Effect -->
+    <link href="../../static/adminResource/css/waves.min.css" rel="stylesheet">
+
+    <!-- Sweet Alert -->
+    <link href="../../static/adminResource/css/sweetalert.css" rel="stylesheet">
+
+    <!-- Color Picker -->
+    <link href="../../static/adminResource/css/color-switcher.min.css" rel="stylesheet">
+
+    <link href="../../static/adminResource/css/star.css" rel="stylesheet" type="text/css">
+    <!--	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+    <!--	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .rate {
+            border: 1px solid #cccccc;
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked) > label:hover,
+        .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+
+        .rate > input:checked + label:hover,
+        .rate > input:checked + label:hover ~ label,
+        .rate > input:checked ~ label:hover,
+        .rate > input:checked ~ label:hover ~ label,
+        .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+    </style>
+</head>
+
+<body>
+
+
+{% include 'user/menu.html' %}
+
+
+<!-- /.main-menu -->
+
+
+{% include 'user/header.html' %}
+
+
+<!-- /.fixed-navbar -->
+
+<div class="notice-popup js__toggle" data-space="50" id="notification-popup">
+    <h2 class="popup-title">Your Notifications</h2>
+    <!-- /.popup-title -->
+    <div class="content">
+        <ul class="notice-list">
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-1.jpg"></span>
+                    <span class="name">John Doe</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">10 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-2.jpg"></span>
+                    <span class="name">Anna William</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">15 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar bg-warning"><i class="fa fa-warning"></i></span>
+                    <span class="name">Update Status</span>
+                    <span class="desc">Failed to get available update data. To ensure the please contact us.</span>
+                    <span class="time">30 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-1.jpg"></span>
+                    <span class="name">Jennifer</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">45 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-6.jpg"></span>
+                    <span class="name">Michael Zenaty</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">50 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-4.jpg"></span>
+                    <span class="name">Simon</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">1 hour</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar bg-violet"><i class="fa fa-flag"></i></span>
+                    <span class="name">Account Contact Change</span>
+                    <span class="desc">A contact detail associated with your account has been changed.</span>
+                    <span class="time">2 hours</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-7.jpg"></span>
+                    <span class="name">Helen 987</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">Yesterday</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-2.jpg"></span>
+                    <span class="name">Denise Jenny</span>
+                    <span class="desc">Like your post: “Contact Form 7 Multi-Step”</span>
+                    <span class="time">Oct, 28</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt=""
+                                              src="../../project/static/adminResource/image/avatar-sm-8.jpg"></span>
+                    <span class="name">Thomas William</span>
+                    <span class="desc">Like your post: “Facebook Messenger”</span>
+                    <span class="time">Oct, 27</span>
+                </a>
+            </li>
+        </ul>
+        <!-- /.notice-list -->
+        <a class="notice-read-more" href="#">See more messages <i class="fa fa-angle-down"></i></a>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /#notification-popup -->
+
+<div class="notice-popup js__toggle" data-space="50" id="message-popup">
+    <h2 class="popup-title">Recent Messages<a class="float-right text-danger" href="#">New message</a></h2>
+    <!-- /.popup-title -->
+    <div class="content">
+        <ul class="notice-list">
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-1.jpg"></span>
+                    <span class="name">John Doe</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">10 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-3.jpg"></span>
+                    <span class="name">Harry Halen</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">15 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-4.jpg"></span>
+                    <span class="name">Thomas Taylor</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">30 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-1.jpg"></span>
+                    <span class="name">Jennifer</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">45 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-sm-5.jpg"></span>
+                    <span class="name">Helen Candy</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">45 min</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-2.jpg"></span>
+                    <span class="name">Anna Cavan</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">1 hour ago</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar bg-success"><i class="fa fa-user"></i></span>
+                    <span class="name">Jenny Betty</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">1 day ago</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="avatar"><img alt="" src="../../static/adminResource/image/avatar-5.jpg"></span>
+                    <span class="name">Denise Peterson</span>
+                    <span class="desc">Amet odio neque nobis consequuntur consequatur a quae, impedit facere repellat voluptates.</span>
+                    <span class="time">1 year ago</span>
+                </a>
+            </li>
+        </ul>
+        <!-- /.notice-list -->
+        <a class="notice-read-more" href="#">See more messages <i class="fa fa-angle-down"></i></a>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /#message-popup -->
+<div id="color-switcher">
+    <div class="btn-switcher" id="color-switcher-button">
+        <div class="inside waves-effect waves-circle waves-light">
+            <i class="ico fas fa-cog"></i>
+        </div>
+        <!-- .inside waves-effect waves-circle -->
+    </div>
+    <!-- .btn-switcher -->
+    <div class="content" id="color-switcher-content">
+        <a class="item js__change_color" data-color="red" href="#"><span class="color"
+                                                                         style="background-color: #f44336;"></span><span
+                class="text">Red</span></a>
+        <a class="item js__change_color" data-color="violet" href="#"><span class="color"
+                                                                            style="background-color: #673ab7;"></span><span
+                class="text">Violet</span></a>
+        <a class="item js__change_color" data-color="dark-blue" href="#"><span class="color"
+                                                                               style="background-color: #3f51b5;"></span><span
+                class="text">Dark Blue</span></a>
+        <a class="item js__change_color active" data-color="blue" href="#"><span class="color"
+                                                                                 style="background-color: #304ffe;"></span><span
+                class="text">Blue</span></a>
+        <a class="item js__change_color" data-color="light-blue" href="#"><span class="color"
+                                                                                style="background-color: #2196f3;"></span><span
+                class="text">Light Blue</span></a>
+        <a class="item js__change_color" data-color="green" href="#"><span class="color"
+                                                                           style="background-color: #4caf50;"></span><span
+                class="text">Green</span></a>
+        <a class="item js__change_color" data-color="yellow" href="#"><span class="color"
+                                                                            style="background-color: #ffc107;"></span><span
+                class="text">Yellow</span></a>
+        <a class="item js__change_color" data-color="orange" href="#"><span class="color"
+                                                                            style="background-color: #ff5722;"></span><span
+                class="text">Orange</span></a>
+        <a class="item js__change_color" data-color="chocolate" href="#"><span class="color"
+                                                                               style="background-color: #795548;"></span><span
+                class="text">Chocolate</span></a>
+        <a class="item js__change_color" data-color="dark-green" href="#"><span class="color"
+                                                                                style="background-color: #263238;"></span><span
+                class="text">Dark Green</span></a>
+        <span class="btn-restore-default js__restore_default" id="color-reset">Reset</span>
+    </div>
+    <!-- /.content -->
+</div>
+<!-- #color-switcher -->
+
+<div id="wrapper">
+    <div class="main-content">
+        <div class="row small-spacing">
+            <div class="col-12">
+                <div class="box-content">
+                    <h4 class="box-title">Post Feedback</h4>
+                    <form action="/user/insertFeedback" data-toggle="validator" id="postCFeedback" method="post">
+                        <div class="form-group">
+                            <label class="control-label" for="inputName">Feedback Subject</label>
+                            <input class="form-control" id="inputName" name="feedbackSubject" placeholder="" required
+                                   type="text">
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="control-label">Feedback Description</label>
+                            <textarea class="form-control" id="textarea" maxlength="225" name="feedbackDescription"
+                                      placeholder="" rows="2"></textarea>
+
+
+                        </div>
+                        <label class="control-label">Feedback Rating</label><br/>
+
+                        <!--                        <div class="stars" value="0" id="star" name="feedbackRating" >-->
+                        <!--                            <span class="star" >&nbsp;</span>-->
+                        <!--                            <span class="star">&nbsp;</span>-->
+                        <!--                            <span class="star">&nbsp;</span>-->
+                        <!--                            <span class="star">&nbsp;</span>-->
+                        <!--                            <span class="star">&nbsp;</span>-->
+                        <!--                        </div>-->
+                        <div class="rate">
+                            <input id="star5" name="rate" type="radio" value="5"/><label for="star5" title="text">5
+                            stars</label>
+                            <input id="star4" name="rate" type="radio" value="4"/><label for="star4" title="text">4
+                            stars</label>
+                            <input id="star3" name="rate" type="radio" value="3"/><label for="star3" title="text">3
+                            stars</label>
+                            <input id="star2" name="rate" type="radio" value="2"/><label for="star2" title="text">2
+                            stars</label>
+                            <input id="star1" name="rate" type="radio" value="1"/><label for="star1" title="text">1
+                            star</label>
+                        </div>
+                        <br/><br/><br/>
+                        <div class="form-group">
+                            <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-content -->
+            </div>
+            <!-- /.col-12 -->
+        </div>
+        <!-- /.row small-spacing -->
+
+
+        {% include 'user/footer.html' %}
+
+
+    </div>
+    <!-- /.main-content -->
+</div><!--/#wrapper -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="adminResource/js/html5shiv.min.js"></script>
+<script src="adminResource/js/respond.min.js"></script>
+<![endif]-->
+<!--
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../static/adminResource/js/jquery.min.js"></script>
+<script src="../../static/adminResource/js/modernizr.min.js"></script>
+<script src="../../static/adminResource/js/bootstrap.min.js"></script>
+<script src="../../static/adminResource/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="../../static/adminResource/js/nprogress.js"></script>
+<script src="../../static/adminResource/js/sweetalert.min.js"></script>
+<script src="../../static/adminResource/js/waves.min.js"></script>
+<!-- Full Screen Plugin -->
+<script src="../../static/adminResource/js/jquery.fullscreen-min.js"></script>
+
+<!-- Validator -->
+<script src="../../static/adminResource/js/validator.min.js"></script>
+
+<script src="../../static/adminResource/js/main.min.js"></script>
+<script src="../../static/adminResource/js/mycommon.js"></script>
+<script src="../../static/adminResource/js/color-switcher.min.js"></script>
+</body>
+</html>
