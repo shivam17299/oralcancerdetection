@@ -21,7 +21,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 
 app.config['SQLALCHEMY_RECORD_QUERIES'] = True
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://beec75059e5e00:3bffdb7a@us-cdbr-iron-east-04.cleardb.net:3306/heroku_448e7b8c679cbd1'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root1234@localhost:3306/PythonDb'
 
 app.config['SQLALCHEMY_MAX_OVERFLOW'] = 0
 
