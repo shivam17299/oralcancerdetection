@@ -292,6 +292,7 @@
                                 <th>Complain Description</th>
                                 <th>Complain Date</th>
                                 <th>Complain Time</th>
+                                <th>Complain Attachment</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -303,6 +304,10 @@
                                 <td>{{ i[0]['complainDescription'] }}</td>
                                 <td>{{ i[0]['complainDate'] }}</td>
                                 <td>{{ i[0]['complainTime'] }}</td>
+
+                                <td>
+                                <a href="{{ i[0]['complainFilePath'] }}{{ i[0]['complainFileName'] }}" target="_blank">View</a>
+                            </td>
                                 <td>
                                     <a href="/admin/loadComplainReply?complainId={{ i[0]['complainId'] }}">Reply</a>
                                 </td>
@@ -316,6 +321,7 @@
                                 <th>Complain Description</th>
                                 <th>Complain Date</th>
                                 <th>Complain Time</th>
+                                <th>Complain Attachment</th>
                                 <th>Actions</th>
                             </tr>
                             </tfoot>

@@ -20,6 +20,7 @@ class RegisterVO(db.Model):
             # 'registerUsername': self.registerUsername,
             'registerGender': self.registerGender,
             'registerNumber': self.registerNumber,
+            'loginPassword': self.loginPassword,
             'register_LoginId': self.register_LoginId
         }
 

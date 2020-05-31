@@ -301,19 +301,6 @@
                             </tr>
                             </tfoot>
                             <tbody>
-                            <tr>
-
-                                <td></td>
-                                <td></td>
-                                <td></td>
-
-
-                                <td><a href="#" target="_blank">View</a>
-                                    <a href="#">Delete</a>
-                                </td>
-
-
-                            </tr>
 
                             {%for row in datasetVOList%}
                             <tr>
@@ -325,8 +312,8 @@
 
                                 <td><a href="/static/adminResource/dataset/{{row['datasetFileName']}}"
                                        target="_blank">View</a>
-                                    <a href="/admin/deleteDataset?datasetId={{row['datasetId']}}">Delete</a>
-                                </td>
+<!--                                    <a href="/admin/deleteDataset?datasetId={{row['datasetId']}}">Delete</a>-->
+<!--                                </td>-->
 
 
                             </tr>

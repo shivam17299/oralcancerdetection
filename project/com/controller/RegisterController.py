@@ -32,9 +32,10 @@ def userInsertRegister():
 
     registerNumber = request.form['registerNumber']
 
-    loginPassword = ''.join((random.choice(string.ascii_letters + string.digits)) for x in range(8))
-
-    print("loginPassword=" + loginPassword)
+    loginPassword = request.form['loginPassword']
+    #     ''.join((random.choice(string.ascii_letters + string.digits)) for x in range(8))
+    #
+    # print("loginPassword=" + loginPassword)
 
     try:
 
@@ -55,32 +56,32 @@ def userInsertRegister():
     except:
         msg = "Username already exist"
 
-    if (error == None):
-        sender = "oralcancerdetection@gmail.com"
-
-        receiver = loginUsername
-
-        msg = MIMEMultipart()
-
-        msg['From'] = sender
-
-        msg['To'] = receiver
-
-        msg['Subject'] = "PYTHON PASSWORD"
-
-        msg.attach(MIMEText(loginPassword, 'plain'))
-
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-
-        server.starttls()
-
-        server.login(sender, "ocd@1234")
-
-        text = msg.as_string()
-
-        server.sendmail(sender, receiver, text)
-
-        server.quit()
+    # if (error == None):
+    #     sender = "oralcancerdetection@gmail.com"
+    #
+    #     receiver = loginUsername
+    #
+    #     msg = MIMEMultipart()
+    #
+    #     msg['From'] = sender
+    #
+    #     msg['To'] = receiver
+    #
+    #     msg['Subject'] = "PYTHON PASSWORD"
+    #
+    #     msg.attach(MIMEText(loginPassword, 'plain'))
+    #
+    #     server = smtplib.SMTP('smtp.gmail.com', 587)
+    #
+    #     server.starttls()
+    #
+    #     server.login(sender, "ocd@1234")
+    #
+    #     text = msg.as_string()
+    #
+    #     server.sendmail(sender, receiver, text)
+    #
+    #     server.quit()
 
     return render_template("admin/Login.html", error=error)
 

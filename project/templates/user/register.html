@@ -38,7 +38,138 @@
                 document.getElementById("btnSubmit").disabled = true;
             }
         }
-    </script>
+        function validate_name() {
+            var registerName = document.getElementById("registerName");
+            var registerName_error = document.getElementById("registerName_error");
+            if(registerName.value=="")
+				{
+
+					registerName_error.style.display="";
+					//a.style.borderColor="red";
+					registerName.style.border="1px solid red"
+
+				}
+				else
+				{
+					registerName_error.style.display="none";
+					registerName.style.border=""
+				}
+
+
+		}
+		function validate_email() {
+            var email = document.getElementById("email");
+            var email_error = document.getElementById("email_error");
+            if(email.value=="")
+				{
+
+					email_error.style.display="";
+					//a.style.borderColor="red";
+					email.style.border="1px solid red"
+
+				}
+				else
+				{
+					email_error.style.display="none";
+					email.style.border=""
+				}
+
+
+		}
+
+		function validate_cnfpass() {
+            // alert("hi");
+            var pass = document.getElementById("pass");
+            var cnfpass = document.getElementById("cnfpass");
+            var cnfpass_error1 = document.getElementById("cnfpass_error1");
+            var cnfpass_error2 = document.getElementById("cnfpass_error2");
+            if(cnfpass.value.length<8 || cnfpass.value.length>12){
+                // alert("1")
+				    cnfpass.setCustomValidity('Please enter password between 8 to 12 in length');
+					cnfpass_error1.style.display="";
+					//a.style.borderColor="red";
+					cnfpass.style.border="1px solid red"
+
+            }
+            else
+            {
+                // alert("2")
+                    cnfpass.setCustomValidity('');
+					cnfpass_error1.style.display="none";
+					cnfpass.style.border=""
+                if(cnfpass.value!=pass.value)
+				{
+				    // alert("3")
+				    cnfpass.setCustomValidity('Passowrd must match');
+					cnfpass_error2.style.display="";
+					//a.style.borderColor="red";
+					cnfpass.style.border="1px solid red"
+
+				}
+				else
+				{
+                    cnfpass.setCustomValidity('');
+					cnfpass_error2.style.display="none";
+					cnfpass.style.border=""
+				}
+            }
+
+
+
+
+		}
+		function validate_pass() {
+            var pass = document.getElementById("pass");
+            var pass_error = document.getElementById("pass_error");
+            // alert(pass.value.length);
+            if(pass.value.length<8 || pass.value.length>12)
+				{
+				    pass.setCustomValidity('Please enter password between 8 to 12 in length');
+					pass_error.style.display="";
+					//a.style.borderColor="red";
+					pass.style.border="1px solid red"
+
+				}
+				else
+				{
+                    pass.setCustomValidity('');
+					pass_error.style.display="none";
+					pass.style.border=""
+				}
+
+
+		}
+		function validate_contact() {
+            var contact = document.getElementById("contact");
+            var contact_error = document.getElementById("contact_error");
+            // alert(contact.value.length);
+            if(contact.value.length<8 || contact.value.length>12)
+				{
+				    contact.setCustomValidity('Please enter valid 10 to 12 digit phone number');
+					contact_error.style.display="";
+					//a.style.borderColor="red";
+					contact.style.border="1px solid red"
+
+				}
+				else
+				{
+                    contact.setCustomValidity('');
+					contact_error.style.display="none";
+					contact.style.border=""
+				}
+
+
+		}
+		function validate1() {
+            validate_name()
+            validate_email()
+            validate_contact()
+            validate_pass()
+            validate_cnfpass()
+
+        }
+	</script>
+
 
 </head>
 
@@ -51,8 +182,10 @@
             <!-- /.title -->
             <div class="frm-title">Register</div>
             <!-- /.frm-title -->
-            <div class="frm-input"><input class="frm-inp" name="registerName" placeholder="Name" required type="text"><i
-                    class="fa fa-user frm-ico"></i></div>
+            <div class="frm-input"><input class="frm-inp" name="registerName" placeholder="Name" required type="text" id="registerName"><i
+                    class="fa fa-user frm-ico" onkeypress="validate_name()"></i>
+                <span style="display:none;color:red" id="registerName_error" >Please enter name</span>
+            </div>
             <!-- /.frm-input -->
             <div class="form-group">
                 Gender: &nbsp;
@@ -65,15 +198,48 @@
             </div>
             <div class="frm-input"><input class="frm-inp" name="loginUsername" placeholder="Email"
                                           pattern="^[^@]+@[^@]+\.[^@]+$" required
-                                          type="email"><i
-                    class="fa fa-envelope frm-ico"></i></div>
-            <!-- /.frm-input -->
-            <!--			<div class="frm-input"><input type="password" placeholder="Password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>-->
-            <!--			&lt;!&ndash; /.frm-input &ndash;&gt;-->
+                                          type="email"
+                                          id="email"
+                                          onkeypress="validate_email()"
+            ><i
+                    class="fa fa-envelope frm-ico"></i>
+            <span style="display:none;color:red" id="email_error" >Please enter email</span>
+            </div>
 
-            <div class="frm-input"><input class="frm-inp" name="registerNumber" minlength="10" maxlength="12"
-                                          placeholder="Contact" required type="number" oninvalid="this.setCustomValidity('Please enter valid 10 to 12 digit phone number')"><i
-                    class="fa fa-user frm-ico"></i></div>
+            <div class="frm-input"><input type="password" placeholder="Password" class="frm-inp" id="pass"
+                                            onfocusout="validate_pass()"
+
+                                          required
+                                            >
+
+<!-- oninvalid="this.setCustomValidity('Please enter password between 8 to 12 in length')"-->
+                                            <i class="fa fa-lock frm-ico"></i>
+            <span style="display:none;color:red" id="pass_error" >Please enter password between 8 to 12 in length</span>
+            </div>
+
+            <div class="frm-input"><input type="password" placeholder="Confirm Password" class="frm-inp"
+                                           id="cnfpass"
+                                          onfocusout="validate_cnfpass()"
+
+                                          required data-match="pass"
+
+
+                                          >
+<!--                 oninvalid="this.setCustomValidity('Please enter password between 8 to 12 in length')"-->
+
+                <i class="fa fa-lock frm-ico"></i>
+                <span style="display:none;color:red" id="cnfpass_error1" >Please enter password between 8 to 12 in length</span>
+                <span style="display:none;color:red" id="cnfpass_error2" >Password must match</span>
+            </div>
+
+            <div class="frm-input"><input class="frm-inp" name="registerNumber" pattern="[0-9]{10,12}"
+                                          placeholder="Contact" required type="text" id="contact"
+                                          onkeypress="validate_contact()"
+                                         >
+<!--                 oninvalid="this.setCustomValidity('Please enter valid 10 to 12 digit phone number')"-->
+                <i class="fa fa-user frm-ico"></i>
+            <span style="display:none;color:red" id="contact_error" >Please enter valid 10 to 12 digit phone number</span>
+            </div>
 
             <div class="clearfix margin-bottom-20">
                 <div class="checkbox primary"><input id="accept" onclick="Checkterms()" type="checkbox"><label
@@ -82,7 +248,7 @@
                 <!-- /.checkbox -->
             </div>
             <!-- /.clearfix -->
-            <button class="frm-submit" disabled id="btnSubmit" style="background: Grey;" type="submit">Register<i
+            <button class="frm-submit" disabled onclick="validate1()" id="btnSubmit" style="background: Grey;" type="submit">Register<i
                     class="fa fa-arrow-circle-right"></i></button>
             <!-- /.row -->
             <a class="a-link" href="/"><i class="fa fa-sign-in"></i>Already have account? Login.</a>
@@ -101,6 +267,7 @@
 <script src="adminResource/js/respond.min.js"></script>
 <![endif]-->
 <!--
+
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="../../static/adminResource/js/jquery.min.js"></script>
