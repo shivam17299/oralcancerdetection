@@ -42,7 +42,7 @@ def prepare(file):
 #    cv2.imshow("Cat VS Dog",img)
 #    cv2.waitKey()
 def main(imgpath):
-    model = tf.keras.models.load_model('Cancer.model')
+    model = tf.keras.models.load_model(r'project/static/adminResource/dataset/Cancer.model')
     print(imgpath)
 
     p = model.predict(prepare(imgpath))
